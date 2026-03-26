@@ -10,14 +10,14 @@
        VARIABLES GLOBALES
     ============================================= */
     :root {
-      --creme:        #FAF8F5;
-      --blanc:        #FFFFFF;
-      --noir:         #1A1A1A;
-      --gris:         #6B6564;
-      --gris-clair:   #C8C2BB;
-      --or:           #C9A96E;
-      --or-clair:     #E8D5AD;
-      --or-pale:      #F5EDD8;
+      --creme:        #0A0A0A;   /* fond principal — le plus sombre */
+      --blanc:        #141414;   /* surface / cartes */
+      --noir:         #F0EDE8;   /* texte principal — blanc chaud */
+      --gris:         #8A847E;   /* texte secondaire */
+      --gris-clair:   #3E3A36;   /* bordures subtiles / placeholders */
+      --or:           #C9A96E;   /* or accent — inchangé */
+      --or-clair:     #4A3818;   /* bordure or sombre */
+      --or-pale:      #1C1710;   /* teinte or très sombre */
       --serif:        'Playfair Display', Georgia, serif;
       --sans:         'DM Sans', system-ui, sans-serif;
       --rayon:        12px;
@@ -64,7 +64,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 999;
-      background: rgba(250, 248, 245, 0.94);
+      background: rgba(10, 10, 10, 0.92);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--or-pale);
@@ -109,7 +109,7 @@
       background: var(--or);
       transition: width 0.3s;
     }
-    .nav-links a:hover { color: var(--noir); }
+    .nav-links a:hover { color: var(--or); }
     .nav-links a:hover::after { width: 100%; }
 
     /* Burger */
@@ -191,7 +191,7 @@
       gap: 7px;
       background: var(--or-pale);
       border: 1px solid var(--or-clair);
-      color: #8B6914;
+      color: var(--or);
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.1em;
@@ -574,8 +574,8 @@
       border: 1px solid var(--or-clair);
     }
     .skills-level.en-dev .skill-cat {
-      background: var(--creme);
-      border: 1px solid #E2DDD7;
+      background: #1A1A1A;
+      border: 1px solid #2A2622;
     }
     .skill-cat:hover {
       transform: translateY(-3px);
@@ -589,7 +589,7 @@
       text-transform: uppercase;
       margin-bottom: 14px;
     }
-    .skills-level.maitrise .skill-cat-name { color: #8B6914; }
+    .skills-level.maitrise .skill-cat-name { color: var(--or); }
     .skills-level.en-dev .skill-cat-name   { color: var(--gris); }
 
     .skill-tags {
@@ -601,7 +601,7 @@
     /* Tags maîtrisé */
     .tag-maitrise {
       background: rgba(201,169,110,0.15);
-      color: #7A5A10;
+      color: var(--or);
       border: 1px solid var(--or-clair);
       font-size: 0.78rem;
       font-weight: 500;
@@ -617,9 +617,9 @@
 
     /* Tags en développement */
     .tag-dev {
-      background: rgba(107,101,100,0.07);
+      background: rgba(255,255,255,0.04);
       color: var(--gris);
-      border: 1px solid #DDD8D3;
+      border: 1px solid #2A2622;
       font-size: 0.78rem;
       font-weight: 500;
       padding: 5px 13px;
@@ -798,7 +798,7 @@
       font-size: 0.72rem;
       font-weight: 500;
       background: var(--or-pale);
-      color: #8B6914;
+      color: var(--or);
       border: 1px solid var(--or-clair);
       padding: 3px 11px;
       border-radius: 50px;
@@ -970,8 +970,8 @@
        FOOTER
     ============================================= */
     footer {
-      background: var(--noir);
-      color: rgba(255,255,255,0.35);
+      background: #000000;
+      color: rgba(255,255,255,0.30);
       text-align: center;
       padding: 36px 5%;
       font-size: 0.8rem;
@@ -1063,9 +1063,9 @@
 
         <div class="fade-up d3">
           <p class="hero-desc">
-            Créative, curieuse et orientée résultats — je crée du contenu qui engage,
-            bâtis des stratégies digitales qui performent, et cherche à rejoindre une
-            équipe ambitieuse pour aller plus loin.
+            Passionnée par le monde digital, je suis à la recherche d'une nouvelle
+            expérience en alternance pour continuer à apprendre, créer et m'épanouir
+            dans un environnement qui me correspond.
           </p>
         </div>
 
@@ -1160,7 +1160,7 @@
 
       <div class="parcours-header fade-up">
         <span class="section-eyebrow" style="justify-content:center;">Parcours</span>
-        <h2>Mon <em>chemin</em></h2>
+        <h2>Mon <em>parcours</em></h2>
         <p>De la formation au terrain — chaque étape compte.</p>
       </div>
 
@@ -1503,11 +1503,11 @@
       <!-- Infos gauche -->
       <div class="fade-up">
         <span class="section-eyebrow">Contact</span>
-        <h2>Travaillons<br /><em>ensemble.</em></h2>
+        <h2>Vous <em>recrutez&nbsp;?</em></h2>
         <div class="contact-gold-bar"></div>
         <p>
-          Tu as un projet, une opportunité ou simplement envie d'échanger sur le marketing digital ?
-          Je serais ravie de te lire. Envoie-moi un message — je réponds vite.
+          N'hésitez pas à me contacter si mon profil vous intéresse — je serais ravie d'échanger
+          avec vous sur un projet d'alternance en marketing digital.
         </p>
 
         <div class="contact-links">
@@ -1564,7 +1564,7 @@
           <div class="form-group">
             <label for="message">Message</label>
             <textarea id="message" name="message"
-              placeholder="Bonjour Alexandra, je souhaite…" required></textarea>
+              placeholder="Bonjour Alexandra, votre profil m'intéresse pour…" required></textarea>
           </div>
           <button type="submit" class="btn-gold-full">Envoyer</button>
         </form>
