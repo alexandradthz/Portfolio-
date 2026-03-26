@@ -494,24 +494,502 @@
     }
 
     /* =============================================
+       4. COMPÉTENCES
+    ============================================= */
+    #skills {
+      padding: 120px 5%;
+      background: var(--blanc);
+    }
+
+    .skills-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .skills-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .skills-header h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      color: var(--noir);
+      margin-bottom: 0.8rem;
+    }
+    .skills-header h2 em { font-style: italic; color: var(--or); }
+    .skills-header p {
+      font-size: 0.95rem;
+      color: var(--gris);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* Bloc niveau */
+    .skills-level {
+      margin-bottom: 64px;
+    }
+    .skills-level:last-child { margin-bottom: 0; }
+
+    .skills-level-label {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .skills-level-label .level-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+    /* Maîtrisé : couleur or */
+    .skills-level.maitrise .level-title { color: var(--or); }
+    /* En développement : gris discret */
+    .skills-level.en-dev .level-title    { color: var(--gris); }
+
+    .skills-level-label .level-bar {
+      flex: 1;
+      height: 1px;
+    }
+    .skills-level.maitrise .level-bar {
+      background: linear-gradient(to right, var(--or-clair), transparent);
+    }
+    .skills-level.en-dev .level-bar {
+      background: linear-gradient(to right, var(--gris-clair), transparent);
+    }
+
+    .skills-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-cat {
+      border-radius: var(--rayon);
+      padding: 24px 26px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .skills-level.maitrise .skill-cat {
+      background: var(--or-pale);
+      border: 1px solid var(--or-clair);
+    }
+    .skills-level.en-dev .skill-cat {
+      background: var(--creme);
+      border: 1px solid #E2DDD7;
+    }
+    .skill-cat:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+    }
+
+    .skill-cat-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .skills-level.maitrise .skill-cat-name { color: #8B6914; }
+    .skills-level.en-dev .skill-cat-name   { color: var(--gris); }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    /* Tags maîtrisé */
+    .tag-maitrise {
+      background: rgba(201,169,110,0.15);
+      color: #7A5A10;
+      border: 1px solid var(--or-clair);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 5px 13px;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .tag-maitrise:hover {
+      background: var(--or);
+      color: var(--blanc);
+      border-color: var(--or);
+    }
+
+    /* Tags en développement */
+    .tag-dev {
+      background: rgba(107,101,100,0.07);
+      color: var(--gris);
+      border: 1px solid #DDD8D3;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 5px 13px;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .tag-dev:hover {
+      background: var(--gris);
+      color: var(--blanc);
+      border-color: var(--gris);
+    }
+
+    /* =============================================
+       5. PROJETS
+    ============================================= */
+    #projects {
+      padding: 120px 5%;
+      background: var(--creme);
+    }
+
+    .projects-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .projects-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .projects-header h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      color: var(--noir);
+      margin-bottom: 0.8rem;
+    }
+    .projects-header h2 em { font-style: italic; color: var(--or); }
+    .projects-header p {
+      font-size: 0.95rem;
+      color: var(--gris);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* Filtres */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 52px;
+    }
+
+    .filter-btn {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 50px;
+      border: 1px solid var(--or-clair);
+      background: var(--blanc);
+      color: var(--gris);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--or);
+      color: var(--blanc);
+      border-color: var(--or);
+      box-shadow: 0 4px 16px rgba(201,169,110,0.25);
+    }
+
+    /* Grille projets */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .project-card {
+      background: var(--blanc);
+      border-radius: var(--rayon);
+      overflow: hidden;
+      border: 1px solid var(--or-pale);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 16px 48px rgba(201,169,110,0.14);
+    }
+    /* État caché pour le filtre */
+    .project-card.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.96);
+    }
+
+    /* Zone image */
+    .project-img {
+      height: 210px;
+      background: var(--or-pale);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Motif décoratif */
+    .project-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(201,169,110,0.18) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(201,169,110,0.10) 0%, transparent 50%);
+    }
+    .project-img-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--gris-clair);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 16px;
+    }
+    .project-img-inner svg { margin: 0 auto 8px; opacity: 0.3; }
+
+    /* Corps de la carte */
+    .project-body {
+      padding: 26px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-cat-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 8px;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--noir);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--gris);
+      line-height: 1.75;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .project-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+    .project-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: var(--or-pale);
+      color: #8B6914;
+      border: 1px solid var(--or-clair);
+      padding: 3px 11px;
+      border-radius: 50px;
+    }
+
+    .btn-projet {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--noir);
+      border-bottom: 1px solid var(--or-clair);
+      padding-bottom: 2px;
+      transition: color 0.25s, border-color 0.25s;
+      align-self: flex-start;
+    }
+    .btn-projet::after { content: '→'; transition: transform 0.25s; }
+    .btn-projet:hover {
+      color: var(--or);
+      border-color: var(--or);
+    }
+    .btn-projet:hover::after { transform: translateX(4px); }
+
+    /* =============================================
+       6. CONTACT
+    ============================================= */
+    #contact {
+      padding: 120px 5%;
+      background: var(--blanc);
+    }
+
+    .contact-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info {}
+
+    .contact-info h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      color: var(--noir);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+    .contact-info h2 em { font-style: italic; color: var(--or); }
+
+    .contact-gold-bar {
+      width: 48px; height: 2px;
+      background: var(--or);
+      border-radius: 2px;
+      margin-bottom: 1.6rem;
+    }
+
+    .contact-info p {
+      font-size: 1rem;
+      color: var(--gris);
+      max-width: 380px;
+      line-height: 1.85;
+      margin-bottom: 2.4rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--noir);
+      transition: color 0.25s;
+    }
+    .contact-link:hover { color: var(--or); }
+
+    .cl-icon {
+      width: 44px; height: 44px;
+      background: var(--or-pale);
+      border: 1px solid var(--or-clair);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.25s;
+    }
+    .contact-link:hover .cl-icon { background: var(--or); }
+    .contact-link:hover .cl-icon svg * { stroke: var(--blanc) !important; }
+
+    /* Formulaire */
+    .contact-form {
+      background: var(--creme);
+      border: 1px solid var(--or-pale);
+      border-radius: var(--rayon);
+      padding: 40px 36px;
+      box-shadow: 0 4px 28px rgba(0,0,0,0.05);
+    }
+
+    .form-group { margin-bottom: 22px; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--noir);
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid var(--or-clair);
+      border-radius: 10px;
+      background: var(--blanc);
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--noir);
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      resize: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--gris-clair); }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--or);
+      box-shadow: 0 0 0 3px rgba(201,169,110,0.14);
+    }
+    .form-group textarea { height: 140px; }
+
+    .btn-gold-full {
+      width: 100%;
+      background: var(--or);
+      color: var(--blanc);
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 15px 0;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(201,169,110,0.25);
+    }
+    .btn-gold-full:hover {
+      background: #B8924C;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201,169,110,0.35);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: var(--noir);
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 36px 5%;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+    footer strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+    footer em { color: var(--or); font-style: normal; }
+
+    /* =============================================
        RESPONSIVE
     ============================================= */
     @media (max-width: 960px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 48px;
-        text-align: center;
-      }
-      .hero-photo-wrap {
-        max-width: 320px;
-        margin: 0 auto;
-      }
-      .hero-desc { margin: 0 auto 2.4rem; }
-      .about-inner {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-      .about-heading { position: static; }
+      .hero-inner       { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .hero-photo-wrap  { max-width: 320px; margin: 0 auto; }
+      .hero-desc        { margin: 0 auto 2.4rem; }
+      .about-inner      { grid-template-columns: 1fr; gap: 48px; }
+      .about-heading    { position: static; }
+      .contact-inner    { grid-template-columns: 1fr; gap: 48px; }
     }
 
     @media (max-width: 640px) {
@@ -527,12 +1005,17 @@
         border-bottom: 1px solid var(--or-pale);
         box-shadow: 0 8px 24px rgba(0,0,0,0.06);
       }
-      .burger { display: flex; }
-      .timeline { padding-left: 36px; }
-      .timeline::before { left: 10px; }
-      .timeline-dot { left: -34px; }
-      .timeline-card { padding: 22px 20px; }
-      .hero-name { font-size: 2.8rem; }
+      .burger                { display: flex; }
+      .timeline              { padding-left: 36px; }
+      .timeline::before      { left: 10px; }
+      .timeline-dot          { left: -34px; }
+      .timeline-card         { padding: 22px 20px; }
+      .hero-name             { font-size: 2.8rem; }
+      .skills-categories     { grid-template-columns: 1fr; }
+      .projects-grid         { grid-template-columns: 1fr; }
+      .contact-form          { padding: 28px 22px; }
+      .filters               { gap: 7px; }
+      .filter-btn            { font-size: 0.72rem; padding: 8px 16px; }
     }
   </style>
 </head>
@@ -751,7 +1234,351 @@
     </div>
   </section>
 
+  <!-- =============================================
+       COMPÉTENCES
+  ============================================= -->
+  <section id="skills">
+    <div class="skills-inner">
+
+      <div class="skills-header fade-up">
+        <span class="section-eyebrow" style="justify-content:center;">Compétences</span>
+        <h2>Ce que je <em>sais faire.</em></h2>
+        <p>Des compétences acquises sur le terrain et en formation, organisées par niveau de maîtrise.</p>
+      </div>
+
+      <!-- ── MAÎTRISÉ ───────────────────────────────── -->
+      <div class="skills-level maitrise fade-up d1">
+        <div class="skills-level-label">
+          <span class="level-title">✦ Maîtrisé</span>
+          <span class="level-bar"></span>
+        </div>
+        <div class="skills-categories">
+
+          <div class="skill-cat">
+            <div class="skill-cat-name">Création de contenu</div>
+            <div class="skill-tags">
+              <span class="tag-maitrise">Canva</span>
+              <span class="tag-maitrise">CapCut</span>
+              <span class="tag-maitrise">Instagram</span>
+              <span class="tag-maitrise">TikTok</span>
+              <span class="tag-maitrise">Reels</span>
+              <span class="tag-maitrise">Stories</span>
+            </div>
+          </div>
+
+          <div class="skill-cat">
+            <div class="skill-cat-name">Communication</div>
+            <div class="skill-tags">
+              <span class="tag-maitrise">Rédaction</span>
+              <span class="tag-maitrise">Storytelling</span>
+              <span class="tag-maitrise">Identité de marque</span>
+              <span class="tag-maitrise">Publicité</span>
+            </div>
+          </div>
+
+          <div class="skill-cat">
+            <div class="skill-cat-name">Marketing</div>
+            <div class="skill-tags">
+              <span class="tag-maitrise">Stratégie réseaux sociaux</span>
+              <span class="tag-maitrise">Community management</span>
+              <span class="tag-maitrise">Création de contenu</span>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /maîtrisé -->
+
+      <!-- ── EN DÉVELOPPEMENT ───────────────────────── -->
+      <div class="skills-level en-dev fade-up d2">
+        <div class="skills-level-label">
+          <span class="level-title">↗ En développement</span>
+          <span class="level-bar"></span>
+        </div>
+        <div class="skills-categories">
+
+          <div class="skill-cat">
+            <div class="skill-cat-name">Outils</div>
+            <div class="skill-tags">
+              <span class="tag-dev">WordPress</span>
+              <span class="tag-dev">Suite Adobe</span>
+              <span class="tag-dev">Google Analytics</span>
+            </div>
+          </div>
+
+          <div class="skill-cat">
+            <div class="skill-cat-name">Marketing Digital</div>
+            <div class="skill-tags">
+              <span class="tag-dev">SEO / SEA</span>
+              <span class="tag-dev">E-commerce</span>
+              <span class="tag-dev">E-business</span>
+              <span class="tag-dev">Écosystème digital</span>
+            </div>
+          </div>
+
+          <div class="skill-cat">
+            <div class="skill-cat-name">Intelligence Artificielle</div>
+            <div class="skill-tags">
+              <span class="tag-dev">ChatGPT</span>
+              <span class="tag-dev">IA génératives</span>
+              <span class="tag-dev">IA appliquée au marketing</span>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /en développement -->
+
+    </div>
+  </section>
+
   <div class="gold-line"></div>
+
+  <!-- =============================================
+       PROJETS
+  ============================================= -->
+  <section id="projects">
+    <div class="projects-inner">
+
+      <div class="projects-header fade-up">
+        <span class="section-eyebrow" style="justify-content:center;">Réalisations</span>
+        <h2>Mes <em>projets.</em></h2>
+        <p>Des créations concrètes qui illustrent mon approche — visuelle, stratégique et orientée impact.</p>
+      </div>
+
+      <!-- Filtres cliquables -->
+      <div class="filters fade-up d1">
+        <button class="filter-btn active" data-filter="tous">Tous</button>
+        <button class="filter-btn" data-filter="creation-visuelle">Création visuelle</button>
+        <button class="filter-btn" data-filter="video">Vidéo</button>
+        <button class="filter-btn" data-filter="marketing-digital">Marketing Digital</button>
+        <button class="filter-btn" data-filter="reseaux-sociaux">Réseaux sociaux</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+
+        <!-- ============================================================
+             PROJET 1 — Affiches & Flyers
+             Pour ajouter une image :
+             Remplace la div .project-img-inner par :
+             <img src="ton-image.jpg" alt="Affiches & Flyers"
+                  style="width:100%;height:100%;object-fit:cover;" />
+             et supprime le contenu placeholder.
+        ============================================================ -->
+        <div class="project-card fade-up d1" data-category="creation-visuelle">
+          <div class="project-img">
+            <div class="project-img-inner">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+              </svg>
+              Image du projet
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-cat-label">Création visuelle</p>
+            <h3 class="project-title">Affiches &amp; Flyers</h3>
+            <p class="project-desc">
+              Création d'affiches et flyers dans le cadre de projets en cours,
+              alliant identité visuelle et communication percutante.
+            </p>
+            <div class="project-tags-row">
+              <span class="project-tag">Canva</span>
+              <span class="project-tag">Design graphique</span>
+              <span class="project-tag">Communication visuelle</span>
+            </div>
+            <!-- REMPLACE href="#" par le lien vers ton projet (PDF, Drive, Behance…) -->
+            <a href="#" class="btn-projet">Voir le projet</a>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             PROJET 2 — Vidéos publicitaires
+             Pour ajouter une image :
+             Remplace la div .project-img-inner par une balise <img>.
+        ============================================================ -->
+        <div class="project-card fade-up d2" data-category="video">
+          <div class="project-img">
+            <div class="project-img-inner">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1">
+                <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>
+              </svg>
+              Image du projet
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-cat-label">Vidéo</p>
+            <h3 class="project-title">Vidéos publicitaires</h3>
+            <p class="project-desc">
+              Réalisation de vidéos publicitaires dans le cadre des cours,
+              de la conception du message à la production finale.
+            </p>
+            <div class="project-tags-row">
+              <span class="project-tag">CapCut</span>
+              <span class="project-tag">Vidéo</span>
+              <span class="project-tag">Publicité</span>
+              <span class="project-tag">Storytelling</span>
+            </div>
+            <!-- REMPLACE href="#" par le lien vers ton projet -->
+            <a href="#" class="btn-projet">Voir le projet</a>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             PROJET 3 — Écosystème digital Back Market
+             Pour ajouter une image :
+             Remplace la div .project-img-inner par une balise <img>.
+        ============================================================ -->
+        <div class="project-card fade-up d3" data-category="marketing-digital">
+          <div class="project-img">
+            <div class="project-img-inner">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1">
+                <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              Image du projet
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-cat-label">Marketing Digital</p>
+            <h3 class="project-title">Écosystème digital Back Market</h3>
+            <p class="project-desc">
+              Analyse et modélisation de l'écosystème digital de Back Market —
+              cartographie des canaux, stratégie de contenu et positionnement digital.
+            </p>
+            <div class="project-tags-row">
+              <span class="project-tag">Marketing digital</span>
+              <span class="project-tag">E-business</span>
+              <span class="project-tag">Stratégie</span>
+            </div>
+            <!-- REMPLACE href="#" par le lien vers ton projet (PDF, présentation…) -->
+            <a href="#" class="btn-projet">Voir le projet</a>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             PROJET 4 — Stories, publications & Reels
+             Pour ajouter une image :
+             Remplace la div .project-img-inner par une balise <img>.
+        ============================================================ -->
+        <div class="project-card fade-up d4" data-category="reseaux-sociaux">
+          <div class="project-img">
+            <div class="project-img-inner">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1">
+                <rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              Image du projet
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-cat-label">Réseaux sociaux</p>
+            <h3 class="project-title">Stories, publications &amp; Reels</h3>
+            <p class="project-desc">
+              Création de contenus pour les réseaux sociaux — stories,
+              publications et reels pensés pour engager et fidéliser une communauté.
+            </p>
+            <div class="project-tags-row">
+              <span class="project-tag">Instagram</span>
+              <span class="project-tag">TikTok</span>
+              <span class="project-tag">Création de contenu</span>
+              <span class="project-tag">Community management</span>
+            </div>
+            <!-- REMPLACE href="#" par le lien vers ton projet -->
+            <a href="#" class="btn-projet">Voir le projet</a>
+          </div>
+        </div>
+
+      </div><!-- /projects-grid -->
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+  <!-- =============================================
+       CONTACT
+  ============================================= -->
+  <section id="contact">
+    <div class="contact-inner">
+
+      <!-- Infos gauche -->
+      <div class="fade-up">
+        <span class="section-eyebrow">Contact</span>
+        <h2>Travaillons<br /><em>ensemble.</em></h2>
+        <div class="contact-gold-bar"></div>
+        <p>
+          Tu as un projet, une opportunité ou simplement envie d'échanger sur le marketing digital ?
+          Je serais ravie de te lire. Envoie-moi un message — je réponds vite.
+        </p>
+
+        <div class="contact-links">
+          <!-- ============================================================
+               LINKEDIN — remplace href="#" par ton URL LinkedIn
+               Exemple : href="https://linkedin.com/in/alexandra-danthez"
+          ============================================================ -->
+          <a href="#" class="contact-link" target="_blank" rel="noopener">
+            <div class="cl-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="var(--or)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            LinkedIn — Alexandra Danthez
+          </a>
+
+          <!-- ============================================================
+               EMAIL — remplace href="#" par mailto:ton@email.com
+               Exemple : href="mailto:alexandra.danthez@email.com"
+          ============================================================ -->
+          <a href="#" class="contact-link">
+            <div class="cl-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="var(--or)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            ton.email@exemple.com
+          </a>
+        </div>
+      </div>
+
+      <!-- Formulaire droite -->
+      <div class="contact-form fade-up d2">
+        <!-- ============================================================
+             FORMULAIRE — pour le rendre fonctionnel :
+             1. Crée un compte sur formspree.io
+             2. Remplace action="#" par action="https://formspree.io/f/TON_ID"
+             3. Ajoute method="POST"
+        ============================================================ -->
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Nom complet</label>
+            <input type="text" id="name" name="name" placeholder="Jean Dupont" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="email" placeholder="jean@exemple.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message"
+              placeholder="Bonjour Alexandra, je souhaite…" required></textarea>
+          </div>
+          <button type="submit" class="btn-gold-full">Envoyer</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <p>© 2025 <strong>Alexandra Danthez</strong> — Marketing Digital · Fontainebleau · Réalisé avec <em>♥</em></p>
+  </footer>
 
   <!-- =============================================
        JAVASCRIPT
@@ -775,6 +1602,34 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // --- Filtres projets ---
+    const filterBtns  = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('#projectsGrid .project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Active visuellement le bouton cliqué
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        projectCards.forEach(card => {
+          const match = filter === 'tous' || card.dataset.category === filter;
+          if (match) {
+            card.classList.remove('hidden');
+            // Re-déclenche l'animation d'apparition
+            card.classList.remove('visible');
+            requestAnimationFrame(() => {
+              observer.observe(card);
+            });
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
