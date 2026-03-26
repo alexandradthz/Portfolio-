@@ -16,14 +16,14 @@
       --noir:       #FFFFFF;
       --gris:       #8A847E;
       --gris-clair: #3E3A36;
-      --or:         #FF69B4;
-      --or-clair:   rgba(255,105,180,0.30);
-      --or-pale:    rgba(255,105,180,0.06);
+      --or:         #FFFFFF;
+      --or-clair:   rgba(255,255,255,0.30);
+      --or-pale:    rgba(255,255,255,0.06);
       --serif:      'Playfair Display', Georgia, serif;
       --sans:       'DM Sans', system-ui, sans-serif;
       --rayon:      12px;
       --max-width:  1160px;
-      --rose:       #FF69B4;
+      --rose:       #FFFFFF;
     }
 
     /* =============================================
@@ -56,12 +56,12 @@
     .gold-line {
       width: 100%;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(255,105,180,0.6), transparent);
-      box-shadow: 0 0 8px rgba(255,105,180,0.35);
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+      box-shadow: 0 0 6px rgba(255,255,255,0.2);
     }
 
     /* =============================================
-       NEON ROSE — tous les accents #FF69B4
+       BLANC SUBTIL — tous les accents #FFFFFF
     ============================================= */
 
     /* Textes accentués */
@@ -75,101 +75,101 @@
     .timeline-date,
     .project-cat-label,
     .flip-front-name {
-      color: #FF69B4;
-      text-shadow: 0 0 8px #FF69B4, 0 0 16px #FF69B4, 0 0 30px rgba(255,105,180,0.8);
+      color: #FFFFFF;
+      text-shadow: 0 0 6px rgba(255,255,255,0.4);
     }
 
-    /* H3 sous-titres — rose plus doux */
+    /* H3 sous-titres */
     .timeline-card h3,
     .project-title {
-      color: #FF69B4;
-      text-shadow: 0 0 6px rgba(255,105,180,0.55);
+      color: #FFFFFF;
+      text-shadow: 0 0 6px rgba(255,255,255,0.4);
     }
 
     /* Barres de section */
     .about-gold-bar,
     .contact-gold-bar {
-      background: #FF69B4;
-      box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.5);
+      background: #FFFFFF;
+      box-shadow: 0 0 6px rgba(255,255,255,0.2);
     }
 
     /* Badge alternance */
     .hero-badge {
-      color: #FF69B4;
-      border-color: #FF69B4;
-      box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.4);
+      color: #FFFFFF;
+      border-color: rgba(255,255,255,0.6);
+      box-shadow: 0 0 6px rgba(255,255,255,0.2);
     }
 
     /* Bouton CTA */
     .btn-gold {
       background: transparent;
-      color: #FF69B4;
-      border: 1px solid #FF69B4;
-      box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.35);
+      color: #FFFFFF;
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: 0 0 6px rgba(255,255,255,0.2);
     }
     .btn-gold:hover {
-      background: rgba(255,105,180,0.08);
+      background: rgba(255,255,255,0.06);
       transform: translateY(-2px);
-      box-shadow: 0 0 14px #FF69B4, 0 0 28px rgba(255,105,180,0.4);
+      box-shadow: 0 0 10px rgba(255,255,255,0.25);
     }
 
     /* Points de timeline */
     .timeline-dot {
-      border-color: #FF69B4;
-      box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.5);
+      border-color: rgba(255,255,255,0.6);
+      box-shadow: 0 0 6px rgba(255,255,255,0.2);
     }
-    .timeline-dot::after { background: #FF69B4; }
+    .timeline-dot::after { background: #FFFFFF; }
 
     /* Tags timeline et projets */
     .timeline-tag,
     .project-tag {
-      color: #FF69B4;
-      border-color: rgba(255,105,180,0.55);
-      box-shadow: 0 0 6px rgba(255,105,180,0.25);
+      color: #FFFFFF;
+      border-color: rgba(255,255,255,0.4);
+      box-shadow: none;
     }
 
     /* Filtres cliquables actifs */
     .filter-btn.active,
     .filter-btn:hover {
-      background: #FF69B4;
+      background: #FFFFFF;
       color: #0A0A0A;
-      border-color: #FF69B4;
-      box-shadow: 0 0 10px rgba(255,105,180,0.5), 0 0 20px rgba(255,105,180,0.25);
+      border-color: #FFFFFF;
+      box-shadow: 0 0 8px rgba(255,255,255,0.25);
     }
 
     /* Cartes projets au survol */
     .project-card:hover {
-      border-color: rgba(255,105,180,0.5);
-      box-shadow: 0 0 16px rgba(255,105,180,0.2), 0 16px 48px rgba(0,0,0,0.25);
+      border-color: rgba(255,255,255,0.4);
+      box-shadow: 0 0 12px rgba(255,255,255,0.1), 0 16px 48px rgba(0,0,0,0.25);
     }
 
     /* Flip card face avant */
     .flip-front {
-      border-color: rgba(255,105,180,0.6);
-      box-shadow: 0 0 10px rgba(255,105,180,0.15), 0 4px 24px rgba(0,0,0,0.4);
+      border-color: rgba(255,255,255,0.4);
+      box-shadow: 0 0 8px rgba(255,255,255,0.08), 0 4px 24px rgba(0,0,0,0.4);
     }
     .flip-front-icon {
-      color: #FF69B4;
-      text-shadow: 0 0 10px #FF69B4, 0 0 20px rgba(255,105,180,0.6);
+      color: #FFFFFF;
+      text-shadow: 0 0 6px rgba(255,255,255,0.4);
     }
 
     /* Lien "Voir le projet" hover */
     .btn-projet:hover {
-      color: #FF69B4;
-      border-color: #FF69B4;
-      text-shadow: 0 0 8px rgba(255,105,180,0.5);
+      color: #FFFFFF;
+      border-color: rgba(255,255,255,0.6);
+      text-shadow: 0 0 6px rgba(255,255,255,0.4);
     }
 
     /* Icônes contact */
     .cl-icon {
-      border-color: rgba(255,105,180,0.3);
-      box-shadow: 0 0 6px rgba(255,105,180,0.15);
+      border-color: rgba(255,255,255,0.25);
+      box-shadow: none;
     }
-    .contact-link:hover { color: #FF69B4; }
+    .contact-link:hover { color: #FFFFFF; }
     .contact-link:hover .cl-icon {
-      background: rgba(255,105,180,0.1);
-      border-color: #FF69B4;
-      box-shadow: 0 0 12px #FF69B4, 0 0 24px rgba(255,105,180,0.3);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.6);
+      box-shadow: 0 0 8px rgba(255,255,255,0.2);
     }
 
     /* =============================================
@@ -698,7 +698,7 @@
 
     /* ── Face arrière ── */
     .flip-back {
-      background: #FF69B4;
+      background: #FFFFFF;
       transform: rotateY(180deg);
       align-items: center;
       justify-content: center;
@@ -1656,7 +1656,7 @@
 
       <div class="fade-up">
         <span class="section-eyebrow">Contact</span>
-        <h2 style="font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;color:#FF69B4;text-shadow:0 0 8px #FF69B4,0 0 16px #FF69B4,0 0 30px rgba(255,105,180,0.8);margin-bottom:0.8rem;line-height:1.2;">Vous <em style="color:#FF69B4;">recrutez&nbsp;?</em></h2>
+        <h2 style="font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;color:#FFFFFF;text-shadow:0 0 6px rgba(255,255,255,0.4);margin-bottom:0.8rem;line-height:1.2;">Vous <em style="color:#FFFFFF;">recrutez&nbsp;?</em></h2>
         <div class="contact-gold-bar"></div>
         <p class="contact-info" style="font-size:1.05rem;color:var(--gris);line-height:1.85;margin-bottom:2.4rem;max-width:520px;">
           N'hésitez pas à me contacter si mon profil vous intéresse,
