@@ -23,6 +23,7 @@
       --sans:       'DM Sans', system-ui, sans-serif;
       --rayon:      12px;
       --max-width:  1160px;
+      --rose:       #FF69B4;
     }
 
     /* =============================================
@@ -146,6 +147,119 @@
     }
 
     /* =============================================
+       NEON ROSE — touches de rose #FF69B4
+    ============================================= */
+
+    /* H2 de section → rose vif */
+    .about-heading h2,
+    .parcours-header h2,
+    .skills-header h2,
+    .projects-header h2 {
+      color: var(--rose);
+      text-shadow: 0 0 8px #FF69B4, 0 0 16px #FF69B4, 0 0 30px rgba(255,105,180,0.8);
+    }
+    /* Les em dans les h2 → même rose */
+    .about-heading h2 em,
+    .parcours-header h2 em,
+    .skills-header h2 em,
+    .projects-header h2 em {
+      color: var(--rose);
+      text-shadow: 0 0 8px #FF69B4, 0 0 16px #FF69B4, 0 0 30px rgba(255,105,180,0.8);
+    }
+
+    /* H3 sous-titres → rose doux */
+    .timeline-card h3,
+    .project-title {
+      color: var(--rose);
+      text-shadow: 0 0 6px rgba(255,105,180,0.55);
+    }
+
+    /* Badge alternance → rose */
+    .hero-badge {
+      border-color: var(--rose);
+      color: var(--rose);
+      box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.4);
+    }
+
+    /* Bouton CTA → transparent + rose */
+    .btn-gold {
+      background: transparent;
+      color: var(--rose);
+      border: 1px solid var(--rose);
+      box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.35);
+    }
+    .btn-gold:hover {
+      background: rgba(255,105,180,0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 0 14px #FF69B4, 0 0 28px rgba(255,105,180,0.4);
+    }
+
+    /* Points de timeline → rose */
+    .timeline-dot {
+      border-color: var(--rose);
+      box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.5);
+    }
+    .timeline-dot::after { background: var(--rose); }
+
+    /* Tags timeline → rose */
+    .timeline-tag {
+      color: var(--rose);
+      border-color: rgba(255,105,180,0.55);
+      box-shadow: 0 0 6px rgba(255,105,180,0.25);
+    }
+
+    /* Tags projets → rose */
+    .project-tag {
+      color: var(--rose);
+      border-color: rgba(255,105,180,0.55);
+      box-shadow: 0 0 6px rgba(255,105,180,0.25);
+    }
+
+    /* Filtres actifs → fond rose, texte sombre */
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--rose);
+      color: #0A0A0A;
+      border-color: var(--rose);
+      box-shadow: 0 0 10px rgba(255,105,180,0.5), 0 0 20px rgba(255,105,180,0.25);
+    }
+
+    /* Cartes projets au survol → bordure rose */
+    .project-card:hover {
+      border-color: rgba(255,105,180,0.5);
+      box-shadow: 0 0 16px rgba(255,105,180,0.2), 0 16px 48px rgba(0,0,0,0.25);
+    }
+
+    /* Flip card face avant → rose */
+    .flip-front {
+      border-color: rgba(255,105,180,0.55);
+      box-shadow: 0 0 10px rgba(255,105,180,0.12), 0 4px 24px rgba(0,0,0,0.4);
+    }
+    .flip-front-icon {
+      color: var(--rose);
+      text-shadow: 0 0 10px #FF69B4, 0 0 20px rgba(255,105,180,0.6);
+    }
+    .flip-front-name {
+      color: var(--rose);
+      text-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.7);
+    }
+
+    /* Lien "Voir le projet" hover → rose */
+    .btn-projet:hover {
+      color: var(--rose);
+      border-color: var(--rose);
+      text-shadow: 0 0 8px rgba(255,105,180,0.5);
+    }
+
+    /* Icônes contact hover → rose */
+    .contact-link:hover { color: var(--rose); }
+    .contact-link:hover .cl-icon {
+      background: rgba(255,105,180,0.1);
+      border-color: var(--rose);
+      box-shadow: 0 0 12px #FF69B4, 0 0 24px rgba(255,105,180,0.3);
+    }
+
+    /* =============================================
        NAVIGATION
     ============================================= */
     nav {
@@ -197,7 +311,7 @@
       background: var(--or);
       transition: width 0.3s;
     }
-    .nav-links a:hover { color: var(--or); }
+    .nav-links a:hover { color: var(--rose); }
     .nav-links a:hover::after { width: 100%; }
 
     /* Burger */
@@ -1629,7 +1743,7 @@
 
       <div class="fade-up">
         <span class="section-eyebrow">Contact</span>
-        <h2 style="font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;color:var(--noir);margin-bottom:0.8rem;line-height:1.2;">Vous <em>recrutez&nbsp;?</em></h2>
+        <h2 style="font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;color:#FF69B4;text-shadow:0 0 8px #FF69B4,0 0 16px #FF69B4,0 0 30px rgba(255,105,180,0.8);margin-bottom:0.8rem;line-height:1.2;">Vous <em style="color:#FF69B4;">recrutez&nbsp;?</em></h2>
         <div class="contact-gold-bar"></div>
         <p class="contact-info" style="font-size:1.05rem;color:var(--gris);line-height:1.85;margin-bottom:2.4rem;max-width:520px;">
           N'hésitez pas à me contacter si mon profil vous intéresse,
