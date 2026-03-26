@@ -16,9 +16,9 @@
       --noir:       #FFFFFF;
       --gris:       #8A847E;
       --gris-clair: #3E3A36;
-      --or:         #FFFFFF;
-      --or-clair:   rgba(255,255,255,0.22);
-      --or-pale:    rgba(255,255,255,0.04);
+      --or:         #FF69B4;
+      --or-clair:   rgba(255,105,180,0.30);
+      --or-pale:    rgba(255,105,180,0.06);
       --serif:      'Playfair Display', Georgia, serif;
       --sans:       'DM Sans', system-ui, sans-serif;
       --rayon:      12px;
@@ -56,136 +56,55 @@
     .gold-line {
       width: 100%;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
-      box-shadow: 0 0 8px rgba(255,255,255,0.3);
+      background: linear-gradient(to right, transparent, rgba(255,105,180,0.6), transparent);
+      box-shadow: 0 0 8px rgba(255,105,180,0.35);
     }
 
     /* =============================================
-       NEON WHITE — effets lumineux blancs
+       NEON ROSE — tous les accents #FF69B4
     ============================================= */
 
-    /* Textes néon blanc */
+    /* Textes accentués */
     .section-eyebrow,
     .nav-logo em,
     .hero-name em,
-    .about-heading h2 em,
-    .parcours-header h2 em,
-    .skills-header h2 em,
-    .projects-header h2 em,
+    .about-heading h2, .about-heading h2 em,
+    .parcours-header h2, .parcours-header h2 em,
+    .skills-header h2, .skills-header h2 em,
+    .projects-header h2, .projects-header h2 em,
     .timeline-date,
     .project-cat-label,
     .flip-front-name {
-      text-shadow: 0 0 8px #FFFFFF, 0 0 16px #FFFFFF, 0 0 30px rgba(255,255,255,0.8);
+      color: #FF69B4;
+      text-shadow: 0 0 8px #FF69B4, 0 0 16px #FF69B4, 0 0 30px rgba(255,105,180,0.8);
     }
 
-    /* Barres / séparateurs néon */
+    /* H3 sous-titres — rose plus doux */
+    .timeline-card h3,
+    .project-title {
+      color: #FF69B4;
+      text-shadow: 0 0 6px rgba(255,105,180,0.55);
+    }
+
+    /* Barres de section */
     .about-gold-bar,
     .contact-gold-bar {
-      background: #FFFFFF;
-      box-shadow: 0 0 8px #FFFFFF, 0 0 16px rgba(255,255,255,0.5);
+      background: #FF69B4;
+      box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.5);
     }
 
     /* Badge alternance */
     .hero-badge {
-      border-color: #FFFFFF;
-      box-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 16px rgba(255,255,255,0.2);
+      color: #FF69B4;
+      border-color: #FF69B4;
+      box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.4);
     }
 
     /* Bouton CTA */
     .btn-gold {
-      color: #0A0A0A;
-      box-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.2);
-    }
-    .btn-gold:hover {
-      background: rgba(255,255,255,0.9);
-      box-shadow: 0 0 16px #FFFFFF, 0 0 32px rgba(255,255,255,0.3);
-    }
-
-    /* Point de timeline */
-    .timeline-dot {
-      border-color: #FFFFFF;
-      box-shadow: 0 0 8px #FFFFFF, 0 0 16px rgba(255,255,255,0.4);
-    }
-    .timeline-dot::after { background: #FFFFFF; }
-
-    /* Tags timeline et projets */
-    .timeline-tag,
-    .project-tag {
-      border-color: rgba(255,255,255,0.5);
-      box-shadow: 0 0 6px rgba(255,255,255,0.25);
-    }
-
-    /* Filtres actifs */
-    .filter-btn.active,
-    .filter-btn:hover {
-      color: #0A0A0A;
-      border-color: #FFFFFF;
-      box-shadow: 0 0 10px rgba(255,255,255,0.4), 0 0 20px rgba(255,255,255,0.15);
-    }
-
-    /* Flip card face avant */
-    .flip-front {
-      border-color: #FFFFFF;
-      box-shadow: 0 0 10px rgba(255,255,255,0.12), 0 4px 24px rgba(0,0,0,0.4);
-    }
-    .flip-front-icon {
-      text-shadow: 0 0 10px #FFFFFF, 0 0 20px rgba(255,255,255,0.6);
-    }
-
-    /* Lien projet hover */
-    .btn-projet:hover {
-      text-shadow: 0 0 8px #FFFFFF;
-    }
-
-    /* Icônes contact */
-    .cl-icon {
-      border-color: rgba(255,255,255,0.25);
-      box-shadow: 0 0 6px rgba(255,255,255,0.15);
-    }
-    .contact-link:hover .cl-icon {
-      box-shadow: 0 0 12px #FFFFFF, 0 0 24px rgba(255,255,255,0.3);
-    }
-
-    /* =============================================
-       NEON ROSE — touches de rose #FF69B4
-    ============================================= */
-
-    /* H2 de section → rose vif */
-    .about-heading h2,
-    .parcours-header h2,
-    .skills-header h2,
-    .projects-header h2 {
-      color: var(--rose);
-      text-shadow: 0 0 8px #FF69B4, 0 0 16px #FF69B4, 0 0 30px rgba(255,105,180,0.8);
-    }
-    /* Les em dans les h2 → même rose */
-    .about-heading h2 em,
-    .parcours-header h2 em,
-    .skills-header h2 em,
-    .projects-header h2 em {
-      color: var(--rose);
-      text-shadow: 0 0 8px #FF69B4, 0 0 16px #FF69B4, 0 0 30px rgba(255,105,180,0.8);
-    }
-
-    /* H3 sous-titres → rose doux */
-    .timeline-card h3,
-    .project-title {
-      color: var(--rose);
-      text-shadow: 0 0 6px rgba(255,105,180,0.55);
-    }
-
-    /* Badge alternance → rose */
-    .hero-badge {
-      border-color: var(--rose);
-      color: var(--rose);
-      box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.4);
-    }
-
-    /* Bouton CTA → transparent + rose */
-    .btn-gold {
       background: transparent;
-      color: var(--rose);
-      border: 1px solid var(--rose);
+      color: #FF69B4;
+      border: 1px solid #FF69B4;
       box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.35);
     }
     .btn-gold:hover {
@@ -194,68 +113,62 @@
       box-shadow: 0 0 14px #FF69B4, 0 0 28px rgba(255,105,180,0.4);
     }
 
-    /* Points de timeline → rose */
+    /* Points de timeline */
     .timeline-dot {
-      border-color: var(--rose);
+      border-color: #FF69B4;
       box-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.5);
     }
-    .timeline-dot::after { background: var(--rose); }
+    .timeline-dot::after { background: #FF69B4; }
 
-    /* Tags timeline → rose */
-    .timeline-tag {
-      color: var(--rose);
-      border-color: rgba(255,105,180,0.55);
-      box-shadow: 0 0 6px rgba(255,105,180,0.25);
-    }
-
-    /* Tags projets → rose */
+    /* Tags timeline et projets */
+    .timeline-tag,
     .project-tag {
-      color: var(--rose);
+      color: #FF69B4;
       border-color: rgba(255,105,180,0.55);
       box-shadow: 0 0 6px rgba(255,105,180,0.25);
     }
 
-    /* Filtres actifs → fond rose, texte sombre */
+    /* Filtres cliquables actifs */
     .filter-btn.active,
     .filter-btn:hover {
-      background: var(--rose);
+      background: #FF69B4;
       color: #0A0A0A;
-      border-color: var(--rose);
+      border-color: #FF69B4;
       box-shadow: 0 0 10px rgba(255,105,180,0.5), 0 0 20px rgba(255,105,180,0.25);
     }
 
-    /* Cartes projets au survol → bordure rose */
+    /* Cartes projets au survol */
     .project-card:hover {
       border-color: rgba(255,105,180,0.5);
       box-shadow: 0 0 16px rgba(255,105,180,0.2), 0 16px 48px rgba(0,0,0,0.25);
     }
 
-    /* Flip card face avant → rose */
+    /* Flip card face avant */
     .flip-front {
-      border-color: rgba(255,105,180,0.55);
-      box-shadow: 0 0 10px rgba(255,105,180,0.12), 0 4px 24px rgba(0,0,0,0.4);
+      border-color: rgba(255,105,180,0.6);
+      box-shadow: 0 0 10px rgba(255,105,180,0.15), 0 4px 24px rgba(0,0,0,0.4);
     }
     .flip-front-icon {
-      color: var(--rose);
+      color: #FF69B4;
       text-shadow: 0 0 10px #FF69B4, 0 0 20px rgba(255,105,180,0.6);
     }
-    .flip-front-name {
-      color: var(--rose);
-      text-shadow: 0 0 8px #FF69B4, 0 0 16px rgba(255,105,180,0.7);
-    }
 
-    /* Lien "Voir le projet" hover → rose */
+    /* Lien "Voir le projet" hover */
     .btn-projet:hover {
-      color: var(--rose);
-      border-color: var(--rose);
+      color: #FF69B4;
+      border-color: #FF69B4;
       text-shadow: 0 0 8px rgba(255,105,180,0.5);
     }
 
-    /* Icônes contact hover → rose */
-    .contact-link:hover { color: var(--rose); }
+    /* Icônes contact */
+    .cl-icon {
+      border-color: rgba(255,105,180,0.3);
+      box-shadow: 0 0 6px rgba(255,105,180,0.15);
+    }
+    .contact-link:hover { color: #FF69B4; }
     .contact-link:hover .cl-icon {
       background: rgba(255,105,180,0.1);
-      border-color: var(--rose);
+      border-color: #FF69B4;
       box-shadow: 0 0 12px #FF69B4, 0 0 24px rgba(255,105,180,0.3);
     }
 
@@ -785,7 +698,7 @@
 
     /* ── Face arrière ── */
     .flip-back {
-      background: #FFFFFF;
+      background: #FF69B4;
       transform: rotateY(180deg);
       align-items: center;
       justify-content: center;
