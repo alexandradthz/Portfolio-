@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alexandra Danthez — Marketing Digital</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* =============================================
        VARIABLES GLOBALES
@@ -12,18 +13,16 @@
     :root {
       --creme:      #0A0A0A;
       --blanc:      #141414;
-      --noir:       #F0EDE8;
+      --noir:       #FFFFFF;
       --gris:       #8A847E;
       --gris-clair: #3E3A36;
-      --or:         #FFD700;
-      --or-clair:   #806600;
-      --or-pale:    #1A1500;
+      --or:         #C9A96E;
+      --or-clair:   #5A4520;
+      --or-pale:    #1C1710;
       --serif:      'Playfair Display', Georgia, serif;
       --sans:       'DM Sans', system-ui, sans-serif;
       --rayon:      12px;
       --max-width:  1160px;
-      --neon-text:  0 0 8px #FFD700, 0 0 18px #FFD700, 0 0 36px rgba(255,215,0,0.6);
-      --neon-brd:   0 0 8px #FFD700, 0 0 18px rgba(255,215,0,0.4);
     }
 
     /* =============================================
@@ -58,40 +57,6 @@
       height: 1px;
       background: linear-gradient(to right, transparent, var(--or-clair), transparent);
     }
-
-    /* =============================================
-       NEON GOLD — effets lumineux globaux
-    ============================================= */
-    .section-eyebrow,
-    .nav-logo em,
-    .hero-name em,
-    .about-heading h2 em,
-    .parcours-header h2 em,
-    .skills-header h2 em,
-    .projects-header h2 em,
-    .contact-info h2 em,
-    .timeline-date,
-    .project-cat-label { text-shadow: var(--neon-text); }
-
-    .gold-line {
-      background: #FFD700;
-      box-shadow: 0 0 8px #FFD700, 0 0 16px rgba(255,215,0,0.35);
-    }
-    .about-gold-bar,
-    .contact-gold-bar { box-shadow: var(--neon-brd); }
-
-    .btn-gold        { box-shadow: 0 0 14px rgba(255,215,0,0.45); }
-    .btn-gold:hover  { box-shadow: 0 0 22px #FFD700, 0 0 40px rgba(255,215,0,0.4); }
-
-    .timeline-dot    { box-shadow: 0 0 8px #FFD700, 0 0 16px rgba(255,215,0,0.25); }
-
-    .filter-btn.active,
-    .filter-btn:hover { box-shadow: 0 0 12px #FFD700, 0 0 24px rgba(255,215,0,0.3); }
-
-    .btn-projet:hover { text-shadow: 0 0 8px #FFD700; }
-
-    .cl-icon { box-shadow: 0 0 8px rgba(255,215,0,0.2); }
-    .contact-link:hover .cl-icon { box-shadow: 0 0 14px #FFD700, 0 0 28px rgba(255,215,0,0.35); }
 
     /* =============================================
        NAVIGATION
@@ -190,13 +155,7 @@
       gap: 10px;
       margin-bottom: 1rem;
     }
-    .section-eyebrow::after {
-      content: '';
-      flex: 1;
-      max-width: 40px;
-      height: 1px;
-      background: var(--or);
-    }
+    .section-eyebrow::after { content: none; }
 
     /* =============================================
        1. HERO
@@ -222,25 +181,17 @@
     .hero-text {}
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: var(--or-pale);
-      border: 1px solid var(--or-clair);
-      color: var(--or);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      display: inline-block;
+      background: transparent;
+      border: 1px solid var(--or);
+      color: #FFFFFF;
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 6px 16px 6px 10px;
-      border-radius: 50px;
+      padding: 5px 14px;
+      border-radius: 4px;
       margin-bottom: 2rem;
-    }
-    .hero-badge::before {
-      content: '';
-      width: 7px; height: 7px;
-      background: var(--or);
-      border-radius: 50%;
     }
 
     .hero-name {
@@ -564,14 +515,14 @@
     /* Grille flip cards */
     .flip-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 28px;
     }
 
     /* Conteneur perspective */
     .flip-card-wrap {
       perspective: 1000px;
-      height: 250px;
+      height: 270px;
     }
 
     /* Carte pivot */
@@ -601,54 +552,56 @@
 
     /* ── Face avant ── */
     .flip-front {
-      background: #1A1A1A;
+      background: #111111;
       border: 1px solid var(--or);
-      box-shadow: 0 0 10px rgba(255,215,0,0.12), inset 0 0 28px rgba(255,215,0,0.03);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
     }
 
     .flip-front-icon {
-      font-size: 2.1rem;
-      margin-bottom: 14px;
-      filter: drop-shadow(0 0 8px #FFD700);
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      color: var(--or);
     }
 
     .flip-front-name {
       font-family: var(--serif);
-      font-size: 1rem;
-      font-weight: 500;
+      font-size: 0.95rem;
+      font-weight: 400;
+      font-style: italic;
       color: var(--or);
-      text-shadow: var(--neon-text);
       text-align: center;
-      margin-bottom: 14px;
-      line-height: 1.3;
+      margin-bottom: 16px;
+      line-height: 1.35;
     }
 
     .flip-front-hint {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.18);
     }
 
     /* ── Face arrière ── */
     .flip-back {
-      background: #FFD700;
+      background: var(--or);
       transform: rotateY(180deg);
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
-      padding: 26px 28px;
-      box-shadow: 0 0 24px rgba(255,215,0,0.5), 0 0 48px rgba(255,215,0,0.2);
+      padding: 28px 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
     }
 
     .flip-back-title {
       font-family: var(--serif);
-      font-size: 0.82rem;
-      font-weight: 700;
+      font-size: 0.78rem;
+      font-weight: 600;
       color: #0A0A0A;
-      margin-bottom: 12px;
-      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
+      text-align: center;
+      width: 100%;
     }
 
     .flip-back-list {
@@ -656,22 +609,14 @@
       width: 100%;
     }
     .flip-back-list li {
-      font-size: 0.83rem;
-      font-weight: 500;
-      color: #1A1A1A;
-      padding: 4px 0;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: #111111;
+      padding: 6px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
     }
     .flip-back-list li:last-child { border-bottom: none; }
-    .flip-back-list li::before {
-      content: '▸';
-      font-size: 0.55rem;
-      flex-shrink: 0;
-      color: #333;
-    }
 
     /* =============================================
        5. PROJETS
@@ -731,9 +676,8 @@
     .filter-btn:hover,
     .filter-btn.active {
       background: var(--or);
-      color: var(--blanc);
+      color: #0A0A0A;
       border-color: var(--or);
-      box-shadow: 0 4px 16px rgba(201,169,110,0.25);
     }
 
     /* Grille projets */
@@ -1211,7 +1155,7 @@
 
       <div class="parcours-header fade-up">
         <span class="section-eyebrow" style="justify-content:center;">Parcours</span>
-        <h2>Mon <em>expérience</em></h2>
+        <h2>Ma <em>formation</em></h2>
         <p>De la formation au terrain — chaque étape compte.</p>
       </div>
 
@@ -1251,6 +1195,26 @@
               <span class="timeline-tag">E-commerce</span>
               <span class="timeline-tag">Stratégie digitale</span>
               <span class="timeline-tag">Entrepreneuriat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entrée entrepreneuriat -->
+        <div class="timeline-item fade-up d3">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2024 — Entrepreneuriat</div>
+          <div class="timeline-card">
+            <h3>Création d'entreprise &amp; stratégie commerciale</h3>
+            <p>
+              Dans le cadre du parcours, développement des compétences en création d'entreprise :
+              rédaction d'un business plan, analyse de marché, benchmark concurrentiel,
+              étude de la concurrence et élaboration d'une stratégie commerciale complète.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Business plan</span>
+              <span class="timeline-tag">Analyse de marché</span>
+              <span class="timeline-tag">Benchmark</span>
+              <span class="timeline-tag">Stratégie commerciale</span>
             </div>
           </div>
         </div>
@@ -1303,7 +1267,7 @@
         <div class="flip-card-wrap fade-up d1">
           <div class="flip-card">
             <div class="flip-front">
-              <div class="flip-front-icon">🎨</div>
+              <div class="flip-front-icon"><i class="fa-solid fa-pen-nib"></i></div>
               <div class="flip-front-name">Création de contenu</div>
               <span class="flip-front-hint">Survolez pour voir</span>
             </div>
@@ -1324,7 +1288,7 @@
         <div class="flip-card-wrap fade-up d2">
           <div class="flip-card">
             <div class="flip-front">
-              <div class="flip-front-icon">📱</div>
+              <div class="flip-front-icon"><i class="fa-solid fa-share-nodes"></i></div>
               <div class="flip-front-name">Réseaux sociaux</div>
               <span class="flip-front-hint">Survolez pour voir</span>
             </div>
@@ -1345,7 +1309,7 @@
         <div class="flip-card-wrap fade-up d3">
           <div class="flip-card">
             <div class="flip-front">
-              <div class="flip-front-icon">✍️</div>
+              <div class="flip-front-icon"><i class="fa-solid fa-bullhorn"></i></div>
               <div class="flip-front-name">Communication</div>
               <span class="flip-front-hint">Survolez pour voir</span>
             </div>
@@ -1365,7 +1329,7 @@
         <div class="flip-card-wrap fade-up d4">
           <div class="flip-card">
             <div class="flip-front">
-              <div class="flip-front-icon">📈</div>
+              <div class="flip-front-icon"><i class="fa-solid fa-chart-line"></i></div>
               <div class="flip-front-name">Marketing Digital</div>
               <span class="flip-front-hint">Survolez pour voir</span>
             </div>
@@ -1386,7 +1350,7 @@
         <div class="flip-card-wrap fade-up d5">
           <div class="flip-card">
             <div class="flip-front">
-              <div class="flip-front-icon">🛠️</div>
+              <div class="flip-front-icon"><i class="fa-solid fa-toolbox"></i></div>
               <div class="flip-front-name">Outils</div>
               <span class="flip-front-hint">Survolez pour voir</span>
             </div>
