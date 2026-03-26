@@ -16,14 +16,14 @@
       --noir:       #FFFFFF;
       --gris:       #8A847E;
       --gris-clair: #3E3A36;
-      --or:         #FFFFFF;
-      --or-clair:   rgba(255,255,255,0.30);
-      --or-pale:    rgba(255,255,255,0.06);
+      --or:         #C9A96E;
+      --or-clair:   rgba(201,169,110,0.30);
+      --or-pale:    rgba(201,169,110,0.06);
       --serif:      'Playfair Display', Georgia, serif;
       --sans:       'DM Sans', system-ui, sans-serif;
       --rayon:      12px;
       --max-width:  1160px;
-      --rose:       #FFFFFF;
+      --rose:       #C9A96E;
     }
 
     /* =============================================
@@ -56,12 +56,11 @@
     .gold-line {
       width: 100%;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
-      box-shadow: 0 0 6px rgba(255,255,255,0.2);
+      background: linear-gradient(to right, transparent, rgba(201,169,110,0.6), transparent);
     }
 
     /* =============================================
-       BLANC SUBTIL — tous les accents #FFFFFF
+       DORÉ CHAUD — tous les accents #C9A96E
     ============================================= */
 
     /* Textes accentués */
@@ -75,101 +74,89 @@
     .timeline-date,
     .project-cat-label,
     .flip-front-name {
-      color: #FFFFFF;
-      text-shadow: 0 0 6px rgba(255,255,255,0.4);
+      color: #C9A96E;
     }
 
     /* H3 sous-titres */
     .timeline-card h3,
     .project-title {
-      color: #FFFFFF;
-      text-shadow: 0 0 6px rgba(255,255,255,0.4);
+      color: #C9A96E;
     }
 
     /* Barres de section */
     .about-gold-bar,
     .contact-gold-bar {
-      background: #FFFFFF;
-      box-shadow: 0 0 6px rgba(255,255,255,0.2);
+      background: #C9A96E;
     }
 
     /* Badge alternance */
     .hero-badge {
-      color: #FFFFFF;
-      border-color: rgba(255,255,255,0.6);
-      box-shadow: 0 0 6px rgba(255,255,255,0.2);
+      color: #C9A96E;
+      border-color: #C9A96E;
     }
 
     /* Bouton CTA */
     .btn-gold {
       background: transparent;
-      color: #FFFFFF;
-      border: 1px solid rgba(255,255,255,0.6);
-      box-shadow: 0 0 6px rgba(255,255,255,0.2);
+      color: #C9A96E;
+      border: 1px solid #C9A96E;
     }
     .btn-gold:hover {
-      background: rgba(255,255,255,0.06);
+      background: rgba(201,169,110,0.08);
       transform: translateY(-2px);
-      box-shadow: 0 0 10px rgba(255,255,255,0.25);
+      box-shadow: 0 2px 12px rgba(201,169,110,0.25);
     }
 
     /* Points de timeline */
     .timeline-dot {
-      border-color: rgba(255,255,255,0.6);
-      box-shadow: 0 0 6px rgba(255,255,255,0.2);
+      border-color: #C9A96E;
     }
-    .timeline-dot::after { background: #FFFFFF; }
+    .timeline-dot::after { background: #C9A96E; }
 
     /* Tags timeline et projets */
     .timeline-tag,
     .project-tag {
-      color: #FFFFFF;
-      border-color: rgba(255,255,255,0.4);
-      box-shadow: none;
+      color: #C9A96E;
+      border-color: rgba(201,169,110,0.55);
     }
 
     /* Filtres cliquables actifs */
     .filter-btn.active,
     .filter-btn:hover {
-      background: #FFFFFF;
+      background: #C9A96E;
       color: #0A0A0A;
-      border-color: #FFFFFF;
-      box-shadow: 0 0 8px rgba(255,255,255,0.25);
+      border-color: #C9A96E;
     }
 
     /* Cartes projets au survol */
     .project-card:hover {
-      border-color: rgba(255,255,255,0.4);
-      box-shadow: 0 0 12px rgba(255,255,255,0.1), 0 16px 48px rgba(0,0,0,0.25);
+      border-color: rgba(201,169,110,0.5);
+      box-shadow: 0 2px 12px rgba(201,169,110,0.25), 0 16px 48px rgba(0,0,0,0.25);
     }
 
     /* Flip card face avant */
     .flip-front {
-      border-color: rgba(255,255,255,0.4);
-      box-shadow: 0 0 8px rgba(255,255,255,0.08), 0 4px 24px rgba(0,0,0,0.4);
+      border-color: rgba(201,169,110,0.55);
     }
     .flip-front-icon {
-      color: #FFFFFF;
-      text-shadow: 0 0 6px rgba(255,255,255,0.4);
+      color: #C9A96E;
     }
 
     /* Lien "Voir le projet" hover */
     .btn-projet:hover {
-      color: #FFFFFF;
-      border-color: rgba(255,255,255,0.6);
-      text-shadow: 0 0 6px rgba(255,255,255,0.4);
+      color: #C9A96E;
+      border-color: #C9A96E;
     }
 
     /* Icônes contact */
     .cl-icon {
-      border-color: rgba(255,255,255,0.25);
-      box-shadow: none;
+      border-color: rgba(201,169,110,0.35);
     }
-    .contact-link:hover { color: #FFFFFF; }
+    .contact-link:hover { color: #C9A96E; }
     .contact-link:hover .cl-icon {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.6);
-      box-shadow: 0 0 8px rgba(255,255,255,0.2);
+      background: rgba(201,169,110,0.08);
+      border-color: #C9A96E;
+      box-shadow: 0 2px 12px rgba(201,169,110,0.25);
     }
 
     /* =============================================
@@ -698,7 +685,7 @@
 
     /* ── Face arrière ── */
     .flip-back {
-      background: #FFFFFF;
+      background: #C9A96E;
       transform: rotateY(180deg);
       align-items: center;
       justify-content: center;
@@ -1656,7 +1643,7 @@
 
       <div class="fade-up">
         <span class="section-eyebrow">Contact</span>
-        <h2 style="font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;color:#FFFFFF;text-shadow:0 0 6px rgba(255,255,255,0.4);margin-bottom:0.8rem;line-height:1.2;">Vous <em style="color:#FFFFFF;">recrutez&nbsp;?</em></h2>
+        <h2 style="font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;color:#C9A96E;margin-bottom:0.8rem;line-height:1.2;">Vous <em style="color:#C9A96E;">recrutez&nbsp;?</em></h2>
         <div class="contact-gold-bar"></div>
         <p class="contact-info" style="font-size:1.05rem;color:var(--gris);line-height:1.85;margin-bottom:2.4rem;max-width:520px;">
           N'hésitez pas à me contacter si mon profil vous intéresse,
