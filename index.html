@@ -16,9 +16,9 @@
       --noir:       #FFFFFF;
       --gris:       #8A847E;
       --gris-clair: #3E3A36;
-      --or:         #C9A96E;
-      --or-clair:   #5A4520;
-      --or-pale:    #1C1710;
+      --or:         #FFFFFF;
+      --or-clair:   rgba(255,255,255,0.22);
+      --or-pale:    rgba(255,255,255,0.04);
       --serif:      'Playfair Display', Georgia, serif;
       --sans:       'DM Sans', system-ui, sans-serif;
       --rayon:      12px;
@@ -55,7 +55,94 @@
     .gold-line {
       width: 100%;
       height: 1px;
-      background: linear-gradient(to right, transparent, var(--or-clair), transparent);
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+      box-shadow: 0 0 8px rgba(255,255,255,0.3);
+    }
+
+    /* =============================================
+       NEON WHITE — effets lumineux blancs
+    ============================================= */
+
+    /* Textes néon blanc */
+    .section-eyebrow,
+    .nav-logo em,
+    .hero-name em,
+    .about-heading h2 em,
+    .parcours-header h2 em,
+    .skills-header h2 em,
+    .projects-header h2 em,
+    .timeline-date,
+    .project-cat-label,
+    .flip-front-name {
+      text-shadow: 0 0 8px #FFFFFF, 0 0 16px #FFFFFF, 0 0 30px rgba(255,255,255,0.8);
+    }
+
+    /* Barres / séparateurs néon */
+    .about-gold-bar,
+    .contact-gold-bar {
+      background: #FFFFFF;
+      box-shadow: 0 0 8px #FFFFFF, 0 0 16px rgba(255,255,255,0.5);
+    }
+
+    /* Badge alternance */
+    .hero-badge {
+      border-color: #FFFFFF;
+      box-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 16px rgba(255,255,255,0.2);
+    }
+
+    /* Bouton CTA */
+    .btn-gold {
+      color: #0A0A0A;
+      box-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.2);
+    }
+    .btn-gold:hover {
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 0 16px #FFFFFF, 0 0 32px rgba(255,255,255,0.3);
+    }
+
+    /* Point de timeline */
+    .timeline-dot {
+      border-color: #FFFFFF;
+      box-shadow: 0 0 8px #FFFFFF, 0 0 16px rgba(255,255,255,0.4);
+    }
+    .timeline-dot::after { background: #FFFFFF; }
+
+    /* Tags timeline et projets */
+    .timeline-tag,
+    .project-tag {
+      border-color: rgba(255,255,255,0.5);
+      box-shadow: 0 0 6px rgba(255,255,255,0.25);
+    }
+
+    /* Filtres actifs */
+    .filter-btn.active,
+    .filter-btn:hover {
+      color: #0A0A0A;
+      border-color: #FFFFFF;
+      box-shadow: 0 0 10px rgba(255,255,255,0.4), 0 0 20px rgba(255,255,255,0.15);
+    }
+
+    /* Flip card face avant */
+    .flip-front {
+      border-color: #FFFFFF;
+      box-shadow: 0 0 10px rgba(255,255,255,0.12), 0 4px 24px rgba(0,0,0,0.4);
+    }
+    .flip-front-icon {
+      text-shadow: 0 0 10px #FFFFFF, 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    /* Lien projet hover */
+    .btn-projet:hover {
+      text-shadow: 0 0 8px #FFFFFF;
+    }
+
+    /* Icônes contact */
+    .cl-icon {
+      border-color: rgba(255,255,255,0.25);
+      box-shadow: 0 0 6px rgba(255,255,255,0.15);
+    }
+    .contact-link:hover .cl-icon {
+      box-shadow: 0 0 12px #FFFFFF, 0 0 24px rgba(255,255,255,0.3);
     }
 
     /* =============================================
@@ -584,7 +671,7 @@
 
     /* ── Face arrière ── */
     .flip-back {
-      background: var(--or);
+      background: #FFFFFF;
       transform: rotateY(180deg);
       align-items: center;
       justify-content: center;
@@ -611,10 +698,10 @@
     .flip-back-list li {
       font-size: 0.82rem;
       font-weight: 400;
-      color: #111111;
+      color: #0A0A0A;
       padding: 6px 0;
       text-align: center;
-      border-bottom: 1px solid rgba(0,0,0,0.12);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
     }
     .flip-back-list li:last-child { border-bottom: none; }
 
