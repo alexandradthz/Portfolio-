@@ -10,18 +10,20 @@
        VARIABLES GLOBALES
     ============================================= */
     :root {
-      --creme:        #0A0A0A;   /* fond principal — le plus sombre */
-      --blanc:        #141414;   /* surface / cartes */
-      --noir:         #F0EDE8;   /* texte principal — blanc chaud */
-      --gris:         #8A847E;   /* texte secondaire */
-      --gris-clair:   #3E3A36;   /* bordures subtiles / placeholders */
-      --or:           #C9A96E;   /* or accent — inchangé */
-      --or-clair:     #4A3818;   /* bordure or sombre */
-      --or-pale:      #1C1710;   /* teinte or très sombre */
-      --serif:        'Playfair Display', Georgia, serif;
-      --sans:         'DM Sans', system-ui, sans-serif;
-      --rayon:        12px;
-      --max-width:    1160px;
+      --creme:      #0A0A0A;
+      --blanc:      #141414;
+      --noir:       #F0EDE8;
+      --gris:       #8A847E;
+      --gris-clair: #3E3A36;
+      --or:         #FFD700;
+      --or-clair:   #806600;
+      --or-pale:    #1A1500;
+      --serif:      'Playfair Display', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+      --rayon:      12px;
+      --max-width:  1160px;
+      --neon-text:  0 0 8px #FFD700, 0 0 18px #FFD700, 0 0 36px rgba(255,215,0,0.6);
+      --neon-brd:   0 0 8px #FFD700, 0 0 18px rgba(255,215,0,0.4);
     }
 
     /* =============================================
@@ -56,6 +58,40 @@
       height: 1px;
       background: linear-gradient(to right, transparent, var(--or-clair), transparent);
     }
+
+    /* =============================================
+       NEON GOLD — effets lumineux globaux
+    ============================================= */
+    .section-eyebrow,
+    .nav-logo em,
+    .hero-name em,
+    .about-heading h2 em,
+    .parcours-header h2 em,
+    .skills-header h2 em,
+    .projects-header h2 em,
+    .contact-info h2 em,
+    .timeline-date,
+    .project-cat-label { text-shadow: var(--neon-text); }
+
+    .gold-line {
+      background: #FFD700;
+      box-shadow: 0 0 8px #FFD700, 0 0 16px rgba(255,215,0,0.35);
+    }
+    .about-gold-bar,
+    .contact-gold-bar { box-shadow: var(--neon-brd); }
+
+    .btn-gold        { box-shadow: 0 0 14px rgba(255,215,0,0.45); }
+    .btn-gold:hover  { box-shadow: 0 0 22px #FFD700, 0 0 40px rgba(255,215,0,0.4); }
+
+    .timeline-dot    { box-shadow: 0 0 8px #FFD700, 0 0 16px rgba(255,215,0,0.25); }
+
+    .filter-btn.active,
+    .filter-btn:hover { box-shadow: 0 0 12px #FFD700, 0 0 24px rgba(255,215,0,0.3); }
+
+    .btn-projet:hover { text-shadow: 0 0 8px #FFD700; }
+
+    .cl-icon { box-shadow: 0 0 8px rgba(255,215,0,0.2); }
+    .contact-link:hover .cl-icon { box-shadow: 0 0 14px #FFD700, 0 0 28px rgba(255,215,0,0.35); }
 
     /* =============================================
        NAVIGATION
@@ -494,7 +530,7 @@
     }
 
     /* =============================================
-       4. COMPÉTENCES
+       4. COMPÉTENCES — FLIP CARDS
     ============================================= */
     #skills {
       padding: 120px 5%;
@@ -525,111 +561,116 @@
       margin: 0 auto;
     }
 
-    /* Bloc niveau */
-    .skills-level {
-      margin-bottom: 64px;
+    /* Grille flip cards */
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 24px;
     }
-    .skills-level:last-child { margin-bottom: 0; }
 
-    .skills-level-label {
+    /* Conteneur perspective */
+    .flip-card-wrap {
+      perspective: 1000px;
+      height: 250px;
+    }
+
+    /* Carte pivot */
+    .flip-card {
+      position: relative;
+      width: 100%; height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.65s ease;
+      cursor: pointer;
+    }
+    .flip-card-wrap:hover .flip-card { transform: rotateY(180deg); }
+
+    /* Face commune */
+    .flip-front,
+    .flip-back {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--rayon);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* ── Face avant ── */
+    .flip-front {
+      background: #1A1A1A;
+      border: 1px solid var(--or);
+      box-shadow: 0 0 10px rgba(255,215,0,0.12), inset 0 0 28px rgba(255,215,0,0.03);
+    }
+
+    .flip-front-icon {
+      font-size: 2.1rem;
+      margin-bottom: 14px;
+      filter: drop-shadow(0 0 8px #FFD700);
+    }
+
+    .flip-front-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--or);
+      text-shadow: var(--neon-text);
+      text-align: center;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .flip-front-hint {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── Face arrière ── */
+    .flip-back {
+      background: #FFD700;
+      transform: rotateY(180deg);
+      align-items: flex-start;
+      justify-content: center;
+      padding: 26px 28px;
+      box-shadow: 0 0 24px rgba(255,215,0,0.5), 0 0 48px rgba(255,215,0,0.2);
+    }
+
+    .flip-back-title {
+      font-family: var(--serif);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #0A0A0A;
+      margin-bottom: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .flip-back-list {
+      list-style: none;
+      width: 100%;
+    }
+    .flip-back-list li {
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: #1A1A1A;
+      padding: 4px 0;
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-    .skills-level-label .level-title {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 500;
-    }
-    /* Maîtrisé : couleur or */
-    .skills-level.maitrise .level-title { color: var(--or); }
-    /* En développement : gris discret */
-    .skills-level.en-dev .level-title    { color: var(--gris); }
-
-    .skills-level-label .level-bar {
-      flex: 1;
-      height: 1px;
-    }
-    .skills-level.maitrise .level-bar {
-      background: linear-gradient(to right, var(--or-clair), transparent);
-    }
-    .skills-level.en-dev .level-bar {
-      background: linear-gradient(to right, var(--gris-clair), transparent);
-    }
-
-    .skills-categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .skill-cat {
-      border-radius: var(--rayon);
-      padding: 24px 26px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .skills-level.maitrise .skill-cat {
-      background: var(--or-pale);
-      border: 1px solid var(--or-clair);
-    }
-    .skills-level.en-dev .skill-cat {
-      background: #1A1A1A;
-      border: 1px solid #2A2622;
-    }
-    .skill-cat:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.06);
-    }
-
-    .skill-cat-name {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .skills-level.maitrise .skill-cat-name { color: var(--or); }
-    .skills-level.en-dev .skill-cat-name   { color: var(--gris); }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
       gap: 7px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
     }
-
-    /* Tags maîtrisé */
-    .tag-maitrise {
-      background: rgba(201,169,110,0.15);
-      color: var(--or);
-      border: 1px solid var(--or-clair);
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 5px 13px;
-      border-radius: 50px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .tag-maitrise:hover {
-      background: var(--or);
-      color: var(--blanc);
-      border-color: var(--or);
-    }
-
-    /* Tags en développement */
-    .tag-dev {
-      background: rgba(255,255,255,0.04);
-      color: var(--gris);
-      border: 1px solid #2A2622;
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 5px 13px;
-      border-radius: 50px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .tag-dev:hover {
-      background: var(--gris);
-      color: var(--blanc);
-      border-color: var(--gris);
+    .flip-back-list li:last-child { border-bottom: none; }
+    .flip-back-list li::before {
+      content: '▸';
+      font-size: 0.55rem;
+      flex-shrink: 0;
+      color: #333;
     }
 
     /* =============================================
@@ -983,6 +1024,12 @@
     /* =============================================
        RESPONSIVE
     ============================================= */
+    /* Contact simplifié (sans formulaire) */
+    .contact-inner--simple {
+      grid-template-columns: 1fr;
+      max-width: 620px;
+    }
+
     @media (max-width: 960px) {
       .hero-inner       { grid-template-columns: 1fr; gap: 48px; text-align: center; }
       .hero-photo-wrap  { max-width: 320px; margin: 0 auto; }
@@ -1005,17 +1052,21 @@
         border-bottom: 1px solid var(--or-pale);
         box-shadow: 0 8px 24px rgba(0,0,0,0.06);
       }
-      .burger                { display: flex; }
-      .timeline              { padding-left: 36px; }
-      .timeline::before      { left: 10px; }
-      .timeline-dot          { left: -34px; }
-      .timeline-card         { padding: 22px 20px; }
-      .hero-name             { font-size: 2.8rem; }
-      .skills-categories     { grid-template-columns: 1fr; }
-      .projects-grid         { grid-template-columns: 1fr; }
-      .contact-form          { padding: 28px 22px; }
-      .filters               { gap: 7px; }
-      .filter-btn            { font-size: 0.72rem; padding: 8px 16px; }
+      .burger           { display: flex; }
+      .timeline         { padding-left: 36px; }
+      .timeline::before { left: 10px; }
+      .timeline-dot     { left: -34px; }
+      .timeline-card    { padding: 22px 20px; }
+      .hero-name        { font-size: 2.8rem; }
+      .flip-grid        { grid-template-columns: repeat(2, 1fr); }
+      .flip-card-wrap   { height: 220px; }
+      .projects-grid    { grid-template-columns: 1fr; }
+      .filters          { gap: 7px; }
+      .filter-btn       { font-size: 0.72rem; padding: 8px 16px; }
+    }
+
+    @media (max-width: 400px) {
+      .flip-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1160,7 +1211,7 @@
 
       <div class="parcours-header fade-up">
         <span class="section-eyebrow" style="justify-content:center;">Parcours</span>
-        <h2>Mon <em>parcours</em></h2>
+        <h2>Mon <em>expérience</em></h2>
         <p>De la formation au terrain — chaque étape compte.</p>
       </div>
 
@@ -1235,7 +1286,7 @@
   </section>
 
   <!-- =============================================
-       COMPÉTENCES
+       COMPÉTENCES — FLIP CARDS
   ============================================= -->
   <section id="skills">
     <div class="skills-inner">
@@ -1243,90 +1294,115 @@
       <div class="skills-header fade-up">
         <span class="section-eyebrow" style="justify-content:center;">Compétences</span>
         <h2>Ce que je <em>sais faire.</em></h2>
-        <p>Des compétences acquises sur le terrain et en formation, organisées par niveau de maîtrise.</p>
+        <p>Survolez chaque carte pour découvrir les compétences associées.</p>
       </div>
 
-      <!-- ── MAÎTRISÉ ───────────────────────────────── -->
-      <div class="skills-level maitrise fade-up d1">
-        <div class="skills-level-label">
-          <span class="level-title">✦ Maîtrisé</span>
-          <span class="level-bar"></span>
+      <div class="flip-grid">
+
+        <!-- Carte 1 — Création de contenu -->
+        <div class="flip-card-wrap fade-up d1">
+          <div class="flip-card">
+            <div class="flip-front">
+              <div class="flip-front-icon">🎨</div>
+              <div class="flip-front-name">Création de contenu</div>
+              <span class="flip-front-hint">Survolez pour voir</span>
+            </div>
+            <div class="flip-back">
+              <div class="flip-back-title">Création de contenu</div>
+              <ul class="flip-back-list">
+                <li>Canva</li>
+                <li>CapCut</li>
+                <li>Reels</li>
+                <li>Stories</li>
+                <li>Vidéo publicitaire</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="skills-categories">
 
-          <div class="skill-cat">
-            <div class="skill-cat-name">Création de contenu</div>
-            <div class="skill-tags">
-              <span class="tag-maitrise">Canva</span>
-              <span class="tag-maitrise">CapCut</span>
-              <span class="tag-maitrise">Instagram</span>
-              <span class="tag-maitrise">TikTok</span>
-              <span class="tag-maitrise">Reels</span>
-              <span class="tag-maitrise">Stories</span>
+        <!-- Carte 2 — Réseaux sociaux -->
+        <div class="flip-card-wrap fade-up d2">
+          <div class="flip-card">
+            <div class="flip-front">
+              <div class="flip-front-icon">📱</div>
+              <div class="flip-front-name">Réseaux sociaux</div>
+              <span class="flip-front-hint">Survolez pour voir</span>
+            </div>
+            <div class="flip-back">
+              <div class="flip-back-title">Réseaux sociaux</div>
+              <ul class="flip-back-list">
+                <li>Instagram</li>
+                <li>TikTok</li>
+                <li>LinkedIn</li>
+                <li>Community management</li>
+                <li>Stratégie réseaux sociaux</li>
+              </ul>
             </div>
           </div>
-
-          <div class="skill-cat">
-            <div class="skill-cat-name">Communication</div>
-            <div class="skill-tags">
-              <span class="tag-maitrise">Rédaction</span>
-              <span class="tag-maitrise">Storytelling</span>
-              <span class="tag-maitrise">Identité de marque</span>
-              <span class="tag-maitrise">Publicité</span>
-            </div>
-          </div>
-
-          <div class="skill-cat">
-            <div class="skill-cat-name">Marketing</div>
-            <div class="skill-tags">
-              <span class="tag-maitrise">Stratégie réseaux sociaux</span>
-              <span class="tag-maitrise">Community management</span>
-              <span class="tag-maitrise">Création de contenu</span>
-            </div>
-          </div>
-
         </div>
-      </div><!-- /maîtrisé -->
 
-      <!-- ── EN DÉVELOPPEMENT ───────────────────────── -->
-      <div class="skills-level en-dev fade-up d2">
-        <div class="skills-level-label">
-          <span class="level-title">↗ En développement</span>
-          <span class="level-bar"></span>
+        <!-- Carte 3 — Communication -->
+        <div class="flip-card-wrap fade-up d3">
+          <div class="flip-card">
+            <div class="flip-front">
+              <div class="flip-front-icon">✍️</div>
+              <div class="flip-front-name">Communication</div>
+              <span class="flip-front-hint">Survolez pour voir</span>
+            </div>
+            <div class="flip-back">
+              <div class="flip-back-title">Communication</div>
+              <ul class="flip-back-list">
+                <li>Rédaction</li>
+                <li>Storytelling</li>
+                <li>Identité de marque</li>
+                <li>Publicité</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="skills-categories">
 
-          <div class="skill-cat">
-            <div class="skill-cat-name">Outils</div>
-            <div class="skill-tags">
-              <span class="tag-dev">WordPress</span>
-              <span class="tag-dev">Suite Adobe</span>
-              <span class="tag-dev">Google Analytics</span>
+        <!-- Carte 4 — Marketing Digital -->
+        <div class="flip-card-wrap fade-up d4">
+          <div class="flip-card">
+            <div class="flip-front">
+              <div class="flip-front-icon">📈</div>
+              <div class="flip-front-name">Marketing Digital</div>
+              <span class="flip-front-hint">Survolez pour voir</span>
+            </div>
+            <div class="flip-back">
+              <div class="flip-back-title">Marketing Digital</div>
+              <ul class="flip-back-list">
+                <li>SEO / SEA</li>
+                <li>E-commerce</li>
+                <li>E-business</li>
+                <li>Écosystème digital</li>
+                <li>IA appliquées au marketing</li>
+              </ul>
             </div>
           </div>
-
-          <div class="skill-cat">
-            <div class="skill-cat-name">Marketing Digital</div>
-            <div class="skill-tags">
-              <span class="tag-dev">SEO / SEA</span>
-              <span class="tag-dev">E-commerce</span>
-              <span class="tag-dev">E-business</span>
-              <span class="tag-dev">Écosystème digital</span>
-            </div>
-          </div>
-
-          <div class="skill-cat">
-            <div class="skill-cat-name">Intelligence Artificielle</div>
-            <div class="skill-tags">
-              <span class="tag-dev">ChatGPT</span>
-              <span class="tag-dev">IA génératives</span>
-              <span class="tag-dev">IA appliquée au marketing</span>
-            </div>
-          </div>
-
         </div>
-      </div><!-- /en développement -->
 
+        <!-- Carte 5 — Outils -->
+        <div class="flip-card-wrap fade-up d5">
+          <div class="flip-card">
+            <div class="flip-front">
+              <div class="flip-front-icon">🛠️</div>
+              <div class="flip-front-name">Outils</div>
+              <span class="flip-front-hint">Survolez pour voir</span>
+            </div>
+            <div class="flip-back">
+              <div class="flip-back-title">Outils</div>
+              <ul class="flip-back-list">
+                <li>WordPress</li>
+                <li>Suite Adobe</li>
+                <li>Google Analytics</li>
+                <li>Canva Pro</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /flip-grid -->
     </div>
   </section>
 
@@ -1498,21 +1574,44 @@
        CONTACT
   ============================================= -->
   <section id="contact">
-    <div class="contact-inner">
+    <div class="contact-inner contact-inner--simple">
 
-      <!-- Infos gauche -->
       <div class="fade-up">
         <span class="section-eyebrow">Contact</span>
-        <h2>Vous <em>recrutez&nbsp;?</em></h2>
+        <h2 style="font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;color:var(--noir);margin-bottom:0.8rem;line-height:1.2;">Vous <em>recrutez&nbsp;?</em></h2>
         <div class="contact-gold-bar"></div>
-        <p>
-          N'hésitez pas à me contacter si mon profil vous intéresse — je serais ravie d'échanger
-          avec vous sur un projet d'alternance en marketing digital.
+        <p class="contact-info" style="font-size:1.05rem;color:var(--gris);line-height:1.85;margin-bottom:2.4rem;max-width:520px;">
+          N'hésitez pas à me contacter si mon profil vous intéresse,
+          je serais ravie d'échanger avec vous.
         </p>
 
         <div class="contact-links">
+
+          <!-- Téléphone -->
+          <a href="tel:+33675736280" class="contact-link">
+            <div class="cl-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="var(--or)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.44 2 2 0 0 1 3.58 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l1.45-1.45a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            06 75 73 62 80
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:danthezalexandra@gmail.com" class="contact-link">
+            <div class="cl-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="var(--or)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            danthezalexandra@gmail.com
+          </a>
+
           <!-- ============================================================
-               LINKEDIN — remplace href="#" par ton URL LinkedIn
+               LINKEDIN — REMPLACE PAR TON VRAI LIEN LINKEDIN
                Exemple : href="https://linkedin.com/in/alexandra-danthez"
           ============================================================ -->
           <a href="#" class="contact-link" target="_blank" rel="noopener">
@@ -1524,50 +1623,10 @@
                 <circle cx="4" cy="4" r="2"/>
               </svg>
             </div>
-            LinkedIn — Alexandra Danthez
+            Alexandra Danthez — LinkedIn
           </a>
 
-          <!-- ============================================================
-               EMAIL — remplace href="#" par mailto:ton@email.com
-               Exemple : href="mailto:alexandra.danthez@email.com"
-          ============================================================ -->
-          <a href="#" class="contact-link">
-            <div class="cl-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                   stroke="var(--or)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            ton.email@exemple.com
-          </a>
         </div>
-      </div>
-
-      <!-- Formulaire droite -->
-      <div class="contact-form fade-up d2">
-        <!-- ============================================================
-             FORMULAIRE — pour le rendre fonctionnel :
-             1. Crée un compte sur formspree.io
-             2. Remplace action="#" par action="https://formspree.io/f/TON_ID"
-             3. Ajoute method="POST"
-        ============================================================ -->
-        <form action="#" method="POST">
-          <div class="form-group">
-            <label for="name">Nom complet</label>
-            <input type="text" id="name" name="name" placeholder="Jean Dupont" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Adresse e-mail</label>
-            <input type="email" id="email" name="email" placeholder="jean@exemple.com" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message"
-              placeholder="Bonjour Alexandra, votre profil m'intéresse pour…" required></textarea>
-          </div>
-          <button type="submit" class="btn-gold-full">Envoyer</button>
-        </form>
       </div>
 
     </div>
